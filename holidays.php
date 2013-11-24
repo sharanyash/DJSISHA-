@@ -7,19 +7,19 @@ $query .= " WHERE Start_Date > CURDATE() OR Start_Date = CURDATE() order by Star
 
 
 if(!empty($_POST)){
-	$value = $_POST + 100;
+	$value = $_POST + 25;
 	$query .= " LIMIT " .$value;
 }
 
 else{
-	$query .= " LIMIT 100";
+	$query .= " LIMIT 25";
 }
 
 $sql = mysql_query($query);
 
 
 while($row=mysql_fetch_assoc($sql))
-header('Content-type: image/jpg');
+//header('Content-type: image/jpg');
 $output[]=$row;
 print(json_encode($output));
 mysql_close();
