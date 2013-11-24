@@ -6,7 +6,9 @@ $query = "SELECT eventID, Name, Description FROM events ";
 
 if(!empty($_POST)){
 
-	$holidayID = $_POST;
+	foreach($_POST as $key => $value){
+		$holidayID = $value;
+	}
 	$query .= "WHERE holidayID =".$holidayID;
 	
 	$sql = mysql_query($query);
